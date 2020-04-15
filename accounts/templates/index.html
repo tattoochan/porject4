@@ -3,7 +3,7 @@
 {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
 
 {% block content %}
-<section class='p-5'> 
+<main class='p-5'> 
     <h1>INDEX</h1>
       {% if request.user.username %}
         Logged In As:{{request.user.username}}
@@ -16,12 +16,16 @@
     {% endif %}
     
     <ul>
+        {% if not user.is_authenticated %}
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
-        <li>Profile</li>
+        {% endif %}
+        
+        {% if user.is_authenticated %}
         <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
     </ul>
-</section>
+</main>
   
 
 {% endblock %}
