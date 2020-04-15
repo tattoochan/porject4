@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
-
+from accounts.forms import LoginForm
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -9,3 +9,9 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
+    
+def login(request):
+    login_form = LoginForm()
+    return render(request, 'login.html', {
+        'form':login_form
+    })
