@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
-from accounts.forms import LoginForm
+from accounts.forms import LoginForm, RegistrationForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-    
+
+@login_required    
 def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
@@ -33,3 +36,9 @@ def login(request):
         return render(request, 'login.html', {
             'form':login_form
         })
+
+def register(request):
+    register_form = RegistrationForm()
+    return render(request, 'register.html',{
+            'form' : register_form
+    })

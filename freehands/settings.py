@@ -121,11 +121,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'accounts.MyUser' 
-
-
 AUTHENTICATION_BACKENDS = (
     # Needed to login by custom User model, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
 )
+
+LOGIN_URL = 'login'
+
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
