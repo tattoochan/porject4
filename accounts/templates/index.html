@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
   
-  {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
-  
-  {% block content %}
-      <h1>INDEX</h1>
+{% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
+
+{% block content %}
+<section class='p-5'> 
+    <h1>INDEX</h1>
       {% if request.user.username %}
-    Logged In As:{{request.user.username}}
-    {% endif %}
+        Logged In As:{{request.user.username}}
+        {% endif %}
     
     <hr> {% if messages %}
     <div>
@@ -19,7 +20,8 @@
         <li>Register</li>
         <li>Profile</li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
-        
     </ul>
+</section>
+  
 
-  {% endblock %}
+{% endblock %}
