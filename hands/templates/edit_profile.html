@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+  
+  {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
+  
+  {% block content %}
+  <section class='p-5'>
+    <h1>Edit profile</h1>
+    <div>
+      <h4>Please enter your job profile</h4>
+    </div>
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>  
+  </section>
+    
+
+
+  {% endblock %}

@@ -9,6 +9,12 @@
 <section class='container-fluid row'>
     <div class="row">
         <div class="col-6"> PROFILE INFO </div>
+        {%for d in data %}
+            {{ d.name }}<br>
+            {{ d.skills}}
+            {{ d.id }}
+            <a href="/hands/edit_profile/{{d.id}}">Edit</a>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}
