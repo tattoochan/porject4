@@ -48,3 +48,7 @@ def delete_profile(request, id):
     return render(request, 'delete_profile.html',{
         'data': selected_profile
     })
+    
+def confirm_delete_profile(request,id):
+    Hands_info.objects.filter(pk=id).delete()
+    return redirect(hand_list)
