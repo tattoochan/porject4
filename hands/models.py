@@ -46,4 +46,4 @@ class Hands_info (models.Model):
         
     
     def __str__(self):
-        return (self.hand_name)
+        return (self.name)
