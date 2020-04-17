@@ -6,14 +6,18 @@
     {% for message in messages %} {{ message }} {% endfor %}
 </div>
 {% endif %}
-<section class='container-fluid row'>
+<section class='container-fluid row p-5'>
     <div class="row">
-        <div class="col-6"> PROFILE INFO </div>
         {%for d in data %}
+        <div class="col-6">
             {{ d.name }}<br>
-            {{ d.skills}}
-            {{ d.id }}
+            {{ d.description }}<br>
+            {{ d.contact }}<br>
+            {{ d.rate_per_day }}<br>
+            {{ d.skills}}<br>
             <a href="/hands/edit_profile/{{d.id}}">Edit</a>
+            <a href="/hands/delete_profile/{{d.id}}">Delete</a>
+        </div>
         {% endfor %}
     </div>
 </section>

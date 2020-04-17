@@ -4,12 +4,14 @@ from hands.models import Hands_info
 from accounts.views import index
 
 # Create your views here.
+""" Display the profile """
 def hand_list(request):
     result = Hands_info.objects.all()
     return render(request, 'hand_list.html', {
         'data' : result
     })
 
+""" Entry for New profile """
 def hand_profile(request):
     if request.method == "POST":
         form = Profile_form(request.POST, request.FILES)
@@ -24,6 +26,7 @@ def hand_profile(request):
             'form' : form
     })
     
+""" Edit for Existing profile"""    
 def edit_profile (request,id):
     selected_profile = get_object_or_404(Hands_info, pk=id)
     
@@ -40,3 +43,8 @@ def edit_profile (request,id):
             'form':form
         })
     
+def delete_profile(request, id):
+    selected_profile = get_object_or_404(Hands_info, pk=id)
+    return render(request, 'delete_profile.html',{
+        'data': selected_profile
+    })
