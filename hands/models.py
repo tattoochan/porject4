@@ -9,23 +9,23 @@ class Hands_info (models.Model):
         blank = False
         )
     
-    hand_name = models.CharField(
+    name = models.CharField(
         max_length = 64,
         blank = False,
-        default = "No information"
+        # default = "No information"
         )
     
-    hand_detail = models.TextField(
+    description = models.TextField(
         max_length = 256,
         blank = False,
-        default = "No info available"
+        # default = "No info available"
         )
         
-    hand_contact = models.IntegerField (
+    contact = models.IntegerField (
         blank = False,
         )    
     
-    hand_rate_per_day = models.IntegerField(
+    rate_per_day = models.IntegerField(
         blank = False,
         default = 20
         )
@@ -39,8 +39,9 @@ class Hands_info (models.Model):
         ('Others','Others'),
         ]
     
-    hand_skill = models.CharField(
+    skills = models.CharField(
         max_length = 16,
+        choices = SKILLS,
         default = 'Others')
         
     
