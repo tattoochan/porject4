@@ -1,31 +1,37 @@
-{% extends 'base.html' %}
-  
-{% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
-
-{% block content %}
-<main class='p-5'> 
-    <h1>INDEX</h1>
-      {% if request.user.username %}
-        Logged In As:{{request.user.username}}
-        {% endif %}
-    
-    <hr> {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
+{% extends 'base.html' %} 
+{% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %} 
+{% block content %} 
+{% if messages %}
+<div>
+    {% for message in messages %} {{ message }} {% endfor %}
+</div>
+{% endif %}
+<main class='container-fluid row'>
+    <!--About Free Hands-->
+    <div class="col-md-6 col-12 pt-5 px-4">
+        <div class='bg-light rounded p-5'>
+            <h1 class='text-dark'>Free Hands <i class="fas fa-hand-sparkles text-danger"></i></h1>
+            <p>Need help to water your plants while you are away ? No time to send your car for servicing or inspection ? Need a temporary nanny ? Just moved in and need someone to help with cleaning ? </p>
+            <p>We provide home-makers, free-lancers or those who recently lost their jobs an opportunity to sell their time as free hand to help someone in their work.</p>
+        </div>
+        <!--<div class='mt-5 p-5 bg-dark'>&nbsp</div>-->
     </div>
-    {% endif %}
-    
-    <ul>
-        {% if not user.is_authenticated %}
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
-        {% endif %}
-        
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% endif %}
-    </ul>
+    <!--Link to different available helping hands-->
+    <div class="col-md-4 col-12  d-flex flex-column justify-content-center align-items-center border" style='height:100%;'>
+        <div class='mx-auto'>
+            <a href='' class='text-dark'><h1><i class="fas fa-hand-sparkles text-warning"></i> Cleaners</h1></a>
+            <a href='' class='text-dark'><h1><i class="fas fa-seedling text-success"></i> Gardeners</h1></a>
+            <a href='' class='text-dark'><h1><i class="fas fa-car-side text-danger"></i> Courier</h1></a>
+            <a href='' class='text-dark'><h1><i class="fas fa-book text-primary"></i> Tutors</h1></a>
+            <a href='' class='text-dark'><h1><i class="fas fa-phone text-info"></i> Telecallers</h1></a>
+            <a href='' class='text-dark'><h1><i class="fas fa-hand-sparkles text-secondary"></i> Others</h1></a>
+        </div>
+        <div class='mt-2 p-5'>&nbsp</div>
+    </div>
+    <!--Login or registration form-->
+    <!--<div class="col d-flex justify-content-center align-items-center" style='height:100%;'>-->
+    <!--    &nbsp-->
+    <!--</div>-->
 </main>
-  
-
 {% endblock %}
+</a>
