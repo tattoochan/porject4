@@ -4,25 +4,35 @@ from hands.models import Hands_info
 from accounts.views import index
 
 # Create your views here.
-""" Display the profile """
-def hand_list(request):
+""" Display all the listings """
+def help_list(request):
     result = Hands_info.objects.all()
-    return render(request, 'hand_list.html', {
+    return render(request, 'help_list.html', {
+        'data' : result
+    })
+
+""" Display the profile """
+def profile(request):
+    # result = Hands_info.objects.all()
+    result = Hands_info.objects.filter(user = request.user )
+    if len(result) == 0 :
+        return redirect(add_profile)
+    return render(request, 'profile.html', {
         'data' : result
     })
 
 """ Entry for New profile """
-def hand_profile(request):
+def add_profile(request): 
     if request.method == "POST":
         form = Profile_form(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-        return redirect(index)
+        return redirect(profile)
     else:   
         form = Profile_form()
-        return render(request, 'hand_profile.html',{
+        return render(request, 'add_profile.html',{
             'form' : form
     })
     
@@ -35,7 +45,7 @@ def edit_profile (request,id):
         if form.is_valid():
             form.user = request.user
             form.save()
-            return redirect(hand_list)
+            return redirect(profile)
     else:
         form = Profile_form(instance=selected_profile)
     
@@ -51,4 +61,4 @@ def delete_profile(request, id):
     
 def confirm_delete_profile(request,id):
     Hands_info.objects.filter(pk=id).delete()
-    return redirect(hand_list)
+    return redirect(profile)

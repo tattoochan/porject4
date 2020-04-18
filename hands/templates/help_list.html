@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %} {% block content %}
+
+<section class='container-fluid row p-5'>
+  <div class="col-12">
+    <h3>Need someone here to help you with your task</h3>
+  </div>
+  
+  {%for d in data %}
+  <div class="col-4 border rounded bg-light m-1">
+    <div class="row">
+      <div class="preview-box col-6 p-3"><img src="/media/images/default_pic.png"></img></div>
+      <div class="col-6 p-3 d-flex flex-column justify-content-between">
+        <table>
+          <tr>
+            <th>Name</t>
+              <td>:</td>
+              <td>{{ d.name }}</td>
+          </tr>
+          <tr>
+            <th>Strength</th>
+            <td>:</td>
+            <td>{{ d.description }}</td>
+          </tr>
+          <tr>
+            <th>Contact</th>
+            <td>:</td>
+            <td>{{ d.contact }}</td>
+          </tr>
+          <tr>
+            <th>Daily Rate</th>
+            <td>:</td>
+            <td>{{ d.rate_per_day }}</td>
+          </tr>
+          <tr>
+            <th>Key Skills</th>
+            <td>:</td>
+            <td>{{ d.skills }}</td>
+          </tr>
+        </table>
+        <a class='btn btn-light w-100' href="">Hire for a day</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+</section>
+{% endblock %}
+</a>
