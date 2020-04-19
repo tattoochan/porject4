@@ -2,25 +2,112 @@
 {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %} 
 {% block content %} 
 {% if messages %}
+
 <div>
     {% for message in messages %} {{ message }} {% endfor %}
 </div>
 {% endif %}
 <section class='container-fluid row p-5'>
-    <div class="row">
-        <h1>{{ message }}</h1>
-        {%for d in data %}
-        <div class="col-6">
-            {{ d.name }}<br>
-            {{ d.description }}<br>
-            {{ d.contact }}<br>
-            {{ d.rate_per_day }}<br>
-            {{ d.skills}}<br>
-            <a href="/hands/edit_profile/{{d.id}}">Edit</a>
-            <a href="/hands/delete_profile/{{d.id}}">Delete</a>
-        </div>
-        {% endfor %}
-    </div>
+    <!--Login profile-->
+    <table class="table table-striped border`">
+        <thead>
+            <tr>
+                <th scope="col" colspan='4' class='bg-warning text-white'><i>User Profile</i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">User name </th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{request.user|capfirst}}'/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{request.user.email}}'/></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Profile as worker-->
+    <table class="table table-striped border`">
+        <thead>
+            <tr>
+                <th scope="col" colspan='4' class='bg-warning text-white'><i>Your Hand Profile (
+                    <a href="/hands/edit_profile/{{data.id}}">Edit</a>|
+                    <a href="/hands/delete_profile/{{data.id}}">Delete</a>
+                    )</i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Profile name </th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{data.name}}'/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">About yourself</th>
+                <td>:</td>
+                <td><textarea class='form-control' readonly> {{data.description}} </textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Contact</th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{data.contact}}'/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Daily Rate ($)</th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{data.rate_per_day}}'/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Skills</th>
+                <td>:</td>
+                <td><input class='form-control w-50' readonly type='text' value='{{data.skills}}'/></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Job Listed-->
+    
+    <a href="{% url 'add_job' %}">Add a job</a>
+    <table class="table table-striped border`">
+        <thead>
+            <tr>
+                <th scope="col" colspan='5' class='bg-dark text-white'><i>Current Job Listings (
+                    
+                    )</i></th>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <th>Job Info</th>
+                <th>Contact</th>
+                <th>Daily Rate</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data2 %}
+            <tr>
+                <td>{{d.position}}</td>
+                <td>{{d.description}}</td>
+                <td>{{d.contact}}</td>
+                <td>${{d.rate_per_day}}</td>
+                <td>
+                    <a href="">Edit</a>|
+                    <a href="">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
 </section>
 {% endblock %}
 </a>

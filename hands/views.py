@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from hands.forms import Profile_form
 from hands.models import Hands_info
 from accounts.views import index
+from tasks.models import Job_detail
 
 # Create your views here.
 """ Display all the listings """
@@ -14,15 +15,21 @@ def help_list(request):
 """ Display the profile """
 def profile(request):
     # result = Hands_info.objects.all()
-    result = Hands_info.objects.filter(user = request.user )
-    if len(result) == 0 :
+    hand_result = Hands_info.objects.filter(user = request.user )
+    job_result = Job_detail.objects.filter(user = request.user)
+    if len(hand_result) == 0 :
         return redirect(add_profile)
     return render(request, 'profile.html', {
-        'data' : result
+        'data' : hand_result[0],
+        'data2': job_result,
     })
 
 """ Entry for New profile """
 def add_profile(request): 
+    result = Hands_info.objects.filter(user = request.user )
+    if len(result) > 0 :
+        return redirect(profile)
+        
     if request.method == "POST":
         form = Profile_form(request.POST, request.FILES)
         if form.is_valid():

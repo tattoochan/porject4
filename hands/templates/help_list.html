@@ -6,10 +6,10 @@
   </div>
   
   {%for d in data %}
-  <div class="col-4 border rounded bg-light m-1">
-    <div class="row">
-      <div class="preview-box col-6 p-3"><img src="/media/images/default_pic.png"></img></div>
-      <div class="col-6 p-3 d-flex flex-column justify-content-between">
+  <div class="col-md-4 col-sm-6 col-12 rounded mx-auto bg-danger">
+    <div class="row bg-light border">
+      <div class="preview-box col-md-8 p-3 mx-auto"><img src="/media/images/default_pic.png"></img></div>
+      <div class="col-12 p-3 d-flex flex-column justify-content-between bg-white">
         <table>
           <tr>
             <th>Name</t>
@@ -37,7 +37,11 @@
             <td>{{ d.skills }}</td>
           </tr>
         </table>
-        <a class='btn btn-light w-100' href="">Hire for a day</a>
+        <a class='btn btn-success w-100' href="">
+          <i class="fas fa-hand-sparkles text-warning"></i>
+          Book Me here!
+          </a>
+        
       </div>
     </div>
   </div>
