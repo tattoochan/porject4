@@ -55,7 +55,6 @@ def edit_profile (request,id):
             return redirect(profile)
     else:
         form = Profile_form(instance=selected_profile)
-    
         return render(request, 'edit_profile.html',{
             'form':form
         })

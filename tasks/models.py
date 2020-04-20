@@ -9,7 +9,7 @@ class Job_detail (models.Model):
         blank = False
         )
     position = models.CharField(
-        max_length = 8,
+        max_length = 32,
         blank = False,
         )
     description = models.TextField(
@@ -23,9 +23,6 @@ class Job_detail (models.Model):
         blank = False,
         default = 20
         )
-    taken = models.BooleanField(
-        blank = False,
-        default = False,
-        )
+        
     def __str__(self):
         return (self.job_name)
