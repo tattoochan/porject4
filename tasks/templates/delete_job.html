@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+  
+  {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
+  
+  {% block content %}
+  <section class='p-5'>
+    <h1>Delete current job listing ?</h1>
+    <div>
+      <h4>Delete {{data.name}} ? </h4>
+      <a href="/tasks/confirm_delete_job/{{data.id}}">Delete</a>
+
+    </div>
+  </section>
+    
+
+
+  {% endblock %}
