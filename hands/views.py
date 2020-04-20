@@ -3,6 +3,7 @@ from hands.forms import Profile_form
 from hands.models import Hands_info
 from accounts.views import index
 from tasks.models import Job_detail
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 """ Display all the listings """
@@ -13,6 +14,8 @@ def help_list(request):
     })
 
 """ Display the profile """
+
+@login_required
 def profile(request):
     # result = Hands_info.objects.all()
     hand_result = Hands_info.objects.filter(user = request.user )
@@ -25,6 +28,7 @@ def profile(request):
     })
 
 """ Entry for New profile """
+@login_required
 def add_profile(request): 
     result = Hands_info.objects.filter(user = request.user )
     if len(result) > 0 :
@@ -44,6 +48,7 @@ def add_profile(request):
     })
     
 """ Edit for Existing profile"""    
+@login_required
 def edit_profile (request,id):
     selected_profile = get_object_or_404(Hands_info, pk=id)
     
@@ -58,13 +63,13 @@ def edit_profile (request,id):
         return render(request, 'edit_profile.html',{
             'form':form
         })
-    
+@login_required
 def delete_profile(request, id):
     selected_profile = get_object_or_404(Hands_info, pk=id)
     return render(request, 'delete_profile.html',{
         'data': selected_profile
     })
-    
+@login_required
 def confirm_delete_profile(request,id):
     Hands_info.objects.filter(pk=id).delete()
     return redirect(profile)

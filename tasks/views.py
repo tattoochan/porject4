@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from tasks.models import Job_detail
 from tasks.forms import Job_form
 from hands.views import profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 """ Show full job listing for applicant to apply """
@@ -9,6 +10,7 @@ def job_listing(request):
     return render(request, 'job_listing.html')
 
 """ Allow user to post a new job """    
+@login_required
 def add_job(request):
     if request.method == "POST":
         form = Job_form(request.POST, request.FILES)
@@ -24,6 +26,7 @@ def add_job(request):
     })
     
 """ Allow user to edit the job listing """    
+@login_required
 def edit_job(request,id):
     selected_job = get_object_or_404(Job_detail, pk=id)
     
@@ -41,12 +44,14 @@ def edit_job(request,id):
             'id': id,
         })
 
+@login_required
 def delete_job(request,id):
     selected_job = get_object_or_404(Job_detail, pk=id)
     return render(request, 'delete_job.html',{
         'data': selected_job
     })
     
+@login_required
 def confirm_delete_job(request,id):
     Job_detail.objects.filter(pk=id).delete()
     return redirect(profile)

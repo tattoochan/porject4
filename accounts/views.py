@@ -25,7 +25,7 @@ def login(request):
             if user:
                 # log in the user
                 auth.login(user=user, request=request)
-                return redirect(reverse('index'))
+                return redirect(reverse('profile'))
             else:
                 login_form.add_error(None, "Invalid username or password")
                 return render(request, 'login.html', {
@@ -57,7 +57,7 @@ def register(request):
                 messages.success(request, "You have successfully registered")
             else:
                 messages.error(request, "Unable to register your account at this time")
-            return redirect(reverse('index'))
+            return redirect(reverse('profile'))
         #NEW CODE ENDS HERE
         else:
             return render(request, 'register.html', {
