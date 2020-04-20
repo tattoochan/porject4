@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'hands',
     'tasks',
+    'booking',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,7 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+# Stripe 
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
