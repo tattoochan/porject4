@@ -106,5 +106,5 @@ Thumbs.db
 !.editorconfig
 !.phpcs.xml.dist
 
-staticfiles/
+
 media/
