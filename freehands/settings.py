@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'hands',
     'tasks',
     'booking',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,5 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 # Stripe 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

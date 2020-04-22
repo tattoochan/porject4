@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
   
-  {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
-  
-  {% block content %}
-  <section class='p-5'>
-    <h1>Register</h1>
+{% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %}
+
+{% block content %}
+
+<section class='p-5 d-flex justify-content-center align-items-center'>
+  <div class='bg-light p-4'>
+    <h3>Register now to be part of our community !</h3>
       
     <form method='POST'>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy}}
         <input type="submit">
     </form>  
-  </section>
+    </div>
+</section>
     
-  {% endblock %}
+{% endblock %}
