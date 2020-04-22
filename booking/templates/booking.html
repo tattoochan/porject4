@@ -1,17 +1,24 @@
 {% extends 'base.html' %} 
 {% block page_title %}Need an extra pair of hands | Part time helpers, odd jobs{% endblock %} 
 {% block content %}
-<section class='mt-5 p-5'>
-    You are going to confirm the service of {{data.name}}
-    His daily rate is $ {{data.rate_per_day}}
-    <form method="POST">
-                {% csrf_token %}
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="{{ key }}"
-                      data-description="Deposit for service"
-                      data-amount="{{amount}}"
-                      data-locale="auto"></script>
-                <input type='hidden' name='amount' value='{{amount}}'/>
-            </form>
+<section class='mt-5 d-flex justify-content-center align-items-center text-center'>
+    <div class='p-5 bg-light'>
+        <div class="preview-box col-md-6 p-3 mx-auto"><img src="{{data.portrait.url}}"></img></div>
+        <p>You are going to confirm the service of {{data.name}}<br/>
+        His daily rate is $ {{data.rate_per_day}}<br/>
+        One day rate of ${{data.rate_per_day}} will be deducted for the deposit </p>
+    
+        <form method="POST">
+            {% csrf_token %}
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="{{ key }}"
+                  data-description="Deposit for service"
+                  data-amount="{{amount}}"
+                  data-locale="auto"></script>
+            <input type='hidden' name='amount' value='{{amount}}'/>
+        </form>
+    
+    </div>
+
 </section>
 {% endblock %} 

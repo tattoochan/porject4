@@ -10,11 +10,13 @@ The website allows individual, companies or corporations to engage staff for sho
     * CREATE / READ / UPATE / DELETE one or more job listing 
     
 Individual can also register to showcase and market their own profile
+
     * Allow User to register for new account and login 
     * CREATE / READ / UPATE / DELETE their profile 
     
 #### Demo
 A live demo can be found here. 
+_https://p4-freehands.herokuapp.com/_
 
 #### UX
     My Considerations for the website:
@@ -42,6 +44,8 @@ A live demo can be found here.
     - link from index to individual jobs are not set up
     - search bar not ready to be implement
     - Social media links not link not set up
+    Future development
+    - have messages option for user to have discussions
 
 #### Testing
 Manual Testing is done to ensure that the all functions are functional.
@@ -76,12 +80,12 @@ Test Results as follows :
 #### Testing Payment Link
 *No* | *Steps* | *Expected Results* | *Observations*
 --- | --- | --- | ---
-1 | In "Help List" click on the 'Book me now!' to make a booking for the staff`| `Go to payment page for user to give a deposit to engage the staff `| **Pass** 
+1 | In "Help List" click on the 'Book me now!' of the selected profile to make a booking for the staff`| `Go to payment page for user to give a deposit to engage the staff `| **Pass** 
 
 
 #### Deployment
 This site is hosted using Heroku App Link : 
-_https://_
+_https://p4-freehands.herokuapp.com/_
 
     Codes are regularly commited to GitHub and links are made to Heroku by installing in bash terminal in projects.
     Regular commits are push to the Github subsequently push to heroku to deploy.
