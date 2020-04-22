@@ -7,7 +7,7 @@
     <div>
     <h3>Let's start landing some jobs on hand by creating a profile</h3>
     </div>
-    <form method='POST'>
+    <form method='POST' enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit">

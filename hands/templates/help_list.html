@@ -6,9 +6,9 @@
   </div>
   
   {%for d in data %}
-  <div class="col-md-4 col-sm-6 col-12 rounded mx-auto bg-danger">
+  <div class="col-md-4 col-sm-6 col-12 rounded">
     <div class="row bg-light border">
-      <div class="preview-box col-md-8 p-3 mx-auto"><img src="/media/images/default_pic.png"></img></div>
+      <div class="preview-box col-md-6 p-3 mx-auto"><img src="{{d.portrait.url}}"></img></div>
       <div class="col-12 p-3 d-flex flex-column justify-content-between bg-white">
         <table>
           <tr>
@@ -37,6 +37,8 @@
             <td>{{ d.skills }}</td>
           </tr>
         </table>
+      <!--</div>-->
+      <!--<div>-->
         <a class='btn btn-success w-100' href="/booking/{{d.id}}">
           <i class="fas fa-hand-sparkles text-warning"></i>
           Book Me here!

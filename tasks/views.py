@@ -7,7 +7,10 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 """ Show full job listing for applicant to apply """
 def job_listing(request):
-    return render(request, 'job_listing.html')
+    result = Job_detail.objects.all()
+    return render(request, 'job_listing.html',{
+        'data':result
+    })
 
 """ Allow user to post a new job """    
 @login_required

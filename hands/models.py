@@ -41,7 +41,12 @@ class Hands_info (models.Model):
         max_length = 16,
         choices = SKILLS,
         default = 'Others')
-        
+    
+    portrait = models.ImageField(
+        null=True,
+        default = 'images/default_pic.png',
+        upload_to='images/', 
+        )
     
     def __str__(self):
         return (self.name)

@@ -9,7 +9,7 @@
 {% endif %}
 <section class='container-fluid row p-5'>
     <!--Login profile-->
-    <table class="table table-striped border`">
+    <table class="table border`">
         <thead>
             <tr>
                 <th scope="col" colspan='4' class='bg-warning text-white'><i>User Profile</i></th>
@@ -17,16 +17,15 @@
         </thead>
         <tbody>
             <tr>
+                <td rowspan='2'><div class='portrait'><img src="{{data.portrait.url}}"></img></div></td>
                 <th scope="row">User name </th>
                 <td>:</td>
                 <td><input class='form-control w-50' readonly type='text' value='{{request.user|capfirst}}'/></td>
-                <td></td>
             </tr>
             <tr>
                 <th scope="row">Email</th>
                 <td>:</td>
                 <td><input class='form-control w-50' readonly type='text' value='{{request.user.email}}'/></td>
-                <td></td>
             </tr>
         </tbody>
     </table>

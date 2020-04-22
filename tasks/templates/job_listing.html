@@ -5,8 +5,36 @@
     <h3>Job Listing</h3>
   </div>
   
-  {%for d in data %}
-  {% endfor %}
+      <table class="table table-striped border`">
+        <thead>
+            <tr>
+                <th scope="col" colspan='5' class='bg-dark text-white'><i>Current Job Listings (
+                    
+                    )</i></th>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <th>Job Info</th>
+                <th>Contact</th>
+                <th>Daily Rate</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{d.position}}</td>
+                <td>{{d.description}}</td>
+                <td>{{d.contact}}</td>
+                <td>${{d.rate_per_day}}</td>
+                <td>
+                    <a href="">Apply</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
   
 </section>
 {% endblock %}

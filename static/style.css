@@ -14,6 +14,11 @@ main {
     height :100%;
     width : auto;
 }
+.portrait img{
+    height:200px;
+    width :auto;
+}
+
 .logo {
     color : orange;
 }

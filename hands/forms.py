@@ -10,4 +10,5 @@ class Profile_form(forms.ModelForm):
             'contact',
             'rate_per_day',
             'skills',
+            'portrait',
         )

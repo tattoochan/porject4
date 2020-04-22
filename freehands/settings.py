@@ -131,7 +131,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 AUTH_USER_MODEL = 'accounts.MyUser' 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by custom User model, regardless of `allauth`
